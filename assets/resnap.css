@@ -23,6 +23,15 @@
     max-width: 30rem;
 }
 
+.resnap-hero .resnap-logo {
+    display: block;
+    width: clamp(4rem, 12vw, 5rem);
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: .875rem;
+    background-color: #fff;
+}
+
 .resnap-hero .resnap-brand {
     margin: 0 0 .75rem;
     color: #d0fb72;

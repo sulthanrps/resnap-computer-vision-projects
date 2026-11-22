@@ -3,11 +3,20 @@
 import hashlib
 import logging
 from base64 import b64encode
+from io import BytesIO
 from pathlib import Path
 
 import streamlit as st
+from PIL import Image
 
-st.set_page_config(page_title="Smart Recipe", page_icon="🥬", layout="wide")
+ASSETS = Path(__file__).resolve().parent / "assets"
+LOGO = ASSETS / "logo.png"
+
+st.set_page_config(
+    page_title="Smart Recipe",
+    page_icon=str(LOGO) if LOGO.is_file() else "🥬",
+    layout="wide",
+)
 
 try:
     import cv2
@@ -23,7 +32,6 @@ except (ImportError, OSError):
 
 MAX_PHOTO_BYTES = 10 * 1024 * 1024
 MAX_PHOTO_PIXELS = 24_000_000
-ASSETS = Path(__file__).resolve().parent / "assets"
 
 
 def read_photo(upload):
@@ -159,6 +167,19 @@ def hero_photo() -> str:
     return b64encode(path.read_bytes()).decode("ascii") if path.is_file() else ""
 
 
+@st.cache_data(show_spinner=False)
+def brand_logo() -> str:
+    if not LOGO.is_file():
+        return '<p class="resnap-brand">ReSnap</p>'
+
+    buffer = BytesIO()
+    with Image.open(LOGO) as image:
+        image.thumbnail((224, 224), Image.Resampling.LANCZOS)
+        image.save(buffer, format="WEBP")
+    encoded = b64encode(buffer.getvalue()).decode("ascii")
+    return f'<img class="resnap-logo" src="data:image/webp;base64,{encoded}" alt="ReSnap">'
+
+
 def show_hero():
     st.html(ASSETS / "resnap.css")
     photo = hero_photo()
@@ -167,7 +188,7 @@ def show_hero():
         f"""
         <header class="resnap-hero" {style}>
             <div class="resnap-hero-copy">
-                <p class="resnap-brand">ReSnap</p>
+                {brand_logo()}
                 <h1>Recipe <span>From a Snap.</span></h1>
                 <p class="resnap-intro">Pindai bahan yang ada di dapur dan temukan resep yang bisa kamu masak.</p>
             </div>
