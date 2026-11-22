@@ -11,10 +11,11 @@ from PIL import Image
 
 ASSETS = Path(__file__).resolve().parent / "assets"
 LOGO = ASSETS / "logo.png"
+FAVICON = ASSETS / "favicon.png"
 
 st.set_page_config(
     page_title="Smart Recipe",
-    page_icon=str(LOGO) if LOGO.is_file() else "🥬",
+    page_icon=str(FAVICON) if FAVICON.is_file() else "🥬",
     layout="wide",
 )
 
