@@ -2,10 +2,12 @@
 
 import hashlib
 import logging
+from base64 import b64encode
+from pathlib import Path
 
 import streamlit as st
 
-st.set_page_config(page_title="Smart Recipe", page_icon="🥬", layout="centered")
+st.set_page_config(page_title="Smart Recipe", page_icon="🥬", layout="wide")
 
 try:
     import cv2
@@ -21,6 +23,7 @@ except (ImportError, OSError):
 
 MAX_PHOTO_BYTES = 10 * 1024 * 1024
 MAX_PHOTO_PIXELS = 24_000_000
+ASSETS = Path(__file__).resolve().parent / "assets"
 
 
 def read_photo(upload):
@@ -131,9 +134,9 @@ def show_recipes(selected):
         st.info("Belum ada resep yang cocok. Coba tambahkan bahan lain.")
         return
 
-    for recipe in recipes:
-        with st.container(border=True):
-            st.markdown("#### " + recipe["judul"])
+    for index, recipe in enumerate(recipes):
+        with st.container(border=True, key=f"recipe_card_{index}"):
+            st.markdown("### " + recipe["judul"])
             st.progress(recipe["skor"], text=f"{recipe['skor']:.0%} kecocokan bahan utama")
             if recipe["bahan_tersedia"]:
                 st.write("**Tersedia** · " + ", ".join(recipe["bahan_tersedia"]))
@@ -150,16 +153,41 @@ def show_recipes(selected):
                     st.link_button("Buka resep sumber", recipe["sumber"])
 
 
-def main():
-    st.title("Smart Recipe")
-    st.write("Pindai bahan yang ada di dapur dan temukan resep yang bisa kamu masak.")
+@st.cache_data(show_spinner=False)
+def hero_photo() -> str:
+    path = ASSETS / "bahan-dapur.webp"
+    return b64encode(path.read_bytes()).decode("ascii") if path.is_file() else ""
 
-    with st.container(border=True):
+
+def show_hero():
+    st.html(ASSETS / "resnap.css")
+    photo = hero_photo()
+    style = f"style=\"--resnap-photo: url('data:image/webp;base64,{photo}')\"" if photo else ""
+    st.html(
+        f"""
+        <header class="resnap-hero" {style}>
+            <div class="resnap-hero-copy">
+                <p class="resnap-brand">ReSnap</p>
+                <h1>Recipe <span>From a Snap.</span></h1>
+                <p class="resnap-intro">Pindai bahan yang ada di dapur dan temukan resep yang bisa kamu masak.</p>
+            </div>
+        </header>
+        """
+    )
+
+
+def show_photo_input():
+    with st.container(border=True, key="photo_panel"):
         st.subheader("Foto bahan")
-        source = st.radio(
-            "Sumber foto", ("Unggah foto", "Kamera"), horizontal=True, label_visibility="collapsed"
+        source = st.segmented_control(
+            "Sumber foto", ("Unggah foto", "Kamera"), default="Unggah foto",
+            selection_mode="single", label_visibility="collapsed",
         )
         if source == "Kamera":
+            st.caption(
+                "Kamera di browser HP memerlukan HTTPS. Jika izin kamera tidak muncul saat "
+                "membuka alamat HTTP lokal, ambil foto dengan kamera HP lalu pilih Unggah foto."
+            )
             upload = st.camera_input("Ambil foto bahan")
         else:
             upload = st.file_uploader("Pilih foto bahan", type=("jpg", "jpeg", "png"))
@@ -169,17 +197,26 @@ def main():
                 scan_photo(photo)
             show_detection(photo)
 
-    st.subheader("Bahan yang tersedia")
-    selected = st.multiselect(
-        "Tambah atau hapus bahan sesuai isi dapurmu",
-        options=sorted(INGREDIENTS, key=display_name),
-        format_func=display_name,
-        placeholder="Cari bahan, misalnya telur",
-        key="ingredients",
-    )
 
-    st.subheader("Rekomendasi resep")
-    show_recipes(selected)
+def main():
+    show_hero()
+    with st.container(key="workspace"):
+        photo_column, recipe_column = st.columns((1, 1.12), gap="medium")
+        with photo_column:
+            show_photo_input()
+        with recipe_column:
+            with st.container(border=True, key="ingredient_panel"):
+                st.subheader("Bahan yang tersedia")
+                selected = st.multiselect(
+                    "Tambah atau hapus bahan sesuai isi dapurmu",
+                    options=sorted(INGREDIENTS, key=display_name),
+                    format_func=display_name,
+                    placeholder="Cari bahan, misalnya telur",
+                    key="ingredients",
+                )
+            with st.container(key="recipe_section"):
+                st.subheader("Rekomendasi resep")
+                show_recipes(selected)
 
 
 if __name__ == "__main__":

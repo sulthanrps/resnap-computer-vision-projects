@@ -1,0 +1,121 @@
+[data-testid="stMainBlockContainer"] {
+    max-width: 72rem;
+    /* Keep the rounded banner below Streamlit's fixed toolbar. */
+    padding-top: calc(4.75rem + env(safe-area-inset-top, 0px));
+    padding-bottom: 3rem;
+}
+
+.resnap-hero {
+    display: flex;
+    align-items: flex-end;
+    min-height: 19rem;
+    padding: clamp(1.5rem, 5vw, 3.5rem);
+    border-radius: 2rem;
+    background-color: #142b1f;
+    background-image: linear-gradient(90deg, #112419 2%, #112419eb 30%, #1124195c 74%),
+        var(--resnap-photo, none);
+    background-position: center, center 53%;
+    background-size: cover;
+    color: #fff;
+}
+
+.resnap-hero-copy {
+    max-width: 30rem;
+}
+
+.resnap-hero .resnap-brand {
+    margin: 0 0 .75rem;
+    color: #d0fb72;
+    font-size: .875rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.resnap-hero h1 {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 650;
+    line-height: 1.02;
+    letter-spacing: -.055em;
+}
+
+.resnap-hero h1 span {
+    display: block;
+    color: #d0fb72;
+}
+
+.resnap-hero .resnap-intro {
+    max-width: 24rem;
+    margin: 1rem 0 0;
+    color: #eef4e8;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.st-key-photo_panel,
+.st-key-ingredient_panel,
+[class*="st-key-recipe_card_"] {
+    background-color: #fff;
+    border-radius: 1.5rem;
+}
+
+.st-key-photo_panel h2,
+.st-key-ingredient_panel h2,
+.st-key-recipe_section h2 {
+    font-size: 1.5rem;
+    letter-spacing: -.035em;
+}
+
+.st-key-photo_panel [data-testid="stFileUploaderDropzone"] {
+    border-radius: 1rem;
+    background-color: #eef5e8;
+}
+
+.st-key-photo_panel button[kind="primary"] {
+    min-height: 2.75rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background-color: #c9f56b;
+    color: #1b2c13;
+}
+
+.st-key-photo_panel button[kind="primary"]:hover {
+    background-color: #b9e852;
+    color: #1b2c13;
+}
+
+.st-key-photo_panel img {
+    border-radius: 1rem;
+}
+
+[class*="st-key-recipe_card_"] h3 {
+    font-size: 1.2rem;
+    letter-spacing: -.025em;
+}
+
+@media (max-width: 40rem) {
+    [data-testid="stMainBlockContainer"] {
+        padding-inline: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    .resnap-hero {
+        min-height: 20rem;
+        border-radius: 1.5rem;
+        background-image: linear-gradient(0deg, #112419 4%, #112419d9 41%, #11241924 100%),
+            var(--resnap-photo, none);
+        background-position: center, 75% center;
+    }
+
+    .st-key-workspace [data-testid="stHorizontalBlock"] {
+        flex-direction: column;
+    }
+
+    .st-key-workspace [data-testid="stColumn"] {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+}

@@ -6,3 +6,4 @@ __pycache__/
 .env.*
 !.env.example
 .streamlit/secrets.toml
+.streamlit/local-tls/
