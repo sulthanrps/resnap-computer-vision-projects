@@ -1,0 +1,150 @@
+{
+  "bahan_input": [
+    "egg",
+    "tomato",
+    "shallot",
+    "chili"
+  ],
+  "resep": [
+    {
+      "judul": "Telor ceplok balado",
+      "gambar": null,
+      "skor": 1.0,
+      "bahan_tersedia": [
+        "Telur",
+        "Bawang merah",
+        "Cabai",
+        "Tomat"
+      ],
+      "bahan_kurang": [],
+      "bahan_resep": [
+        "5 butir telor ayam",
+        "secukupnya Kecap manis",
+        "garam, gula",
+        "Bumbu yg dihaluskan :",
+        "12 butir bawang merah",
+        "8 cabe merah keriting"
+      ],
+      "langkah": [
+        "Goreng telor smpai habis.",
+        "Tumis bumbu yg dihaluskan, kmdn tambahkan kecap, gula, garam, telor ceplok.",
+        "Tes rasa, angkat dan sajikan."
+      ],
+      "sumber": "https://cookpad.com/id/resep/4008795-telor-ceplok-balado",
+      "kategori": "telur",
+      "loves": 4,
+      "api": "lokal"
+    },
+    {
+      "judul": "Telur ceplok bawang cabe",
+      "gambar": null,
+      "skor": 1.0,
+      "bahan_tersedia": [
+        "Telur",
+        "Bawang merah",
+        "Cabai",
+        "Tomat"
+      ],
+      "bahan_kurang": [],
+      "bahan_resep": [
+        "6 btr telur ayam",
+        "6 siung bawang merah",
+        "2 bh cabe merah",
+        "1 bh tomat",
+        "secukupnya rawit",
+        "secukupnya kecap"
+      ],
+      "langkah": [
+        "Iris semua bawang, cabe, rawit, tomat,, kalo mau pake bawang putih sok mangga,, krn keluarga aku ga begitu suka bawang putih jd ga pake hehee",
+        "Ceplok telor hingga habis, beri sedikit garam pada masing2 telor",
+        "Tumis bawang merah, hingga layu menguning masukan cabe, tomat, rawit hingga semua layu"
+      ],
+      "sumber": "https://cookpad.com/id/resep/4258799-telur-ceplok-bawang-cabe",
+      "kategori": "telur",
+      "loves": 2,
+      "api": "lokal"
+    },
+    {
+      "judul": "Telur Penyet Sambal Kukus",
+      "gambar": null,
+      "skor": 1.0,
+      "bahan_tersedia": [
+        "Telur",
+        "Cabai",
+        "Tomat"
+      ],
+      "bahan_kurang": [],
+      "bahan_resep": [
+        "2 btr Telur Ayam, rebus",
+        "❤ Bahan Sambal ::",
+        "1/2 sdt terasi",
+        "3 bh lombok merah",
+        "3 cabe rawit (sesuai selera)",
+        "1-2 bh tomat (kalo besar 1 aja)"
+      ],
+      "langkah": [
+        "Rebus semua bahan....termasuk telur dan bahan sambal (kecuali garam ya..), bahan sambal bisa juga di goreng sampe layu...tapi biasanya sy kukus saja.",
+        "Kupas kulit telur...uleg sambel...test rasa gurih silahkan kalo mau di tambah sedikittt gula pasir.",
+        "Penyet telurnya dgn uleg an..Nyet, satu dulu yg di penyet krn hanya utk eike hehehe"
+      ],
+      "sumber": "https://cookpad.com/id/resep/3922357-telur-penyet-sambal-kukus",
+      "kategori": "telur",
+      "loves": 35,
+      "api": "lokal"
+    },
+    {
+      "judul": "Telur Dadar",
+      "gambar": null,
+      "skor": 1.0,
+      "bahan_tersedia": [
+        "Telur",
+        "Cabai",
+        "Bawang merah"
+      ],
+      "bahan_kurang": [],
+      "bahan_resep": [
+        "5 buah telur",
+        "10 buah cabai rawit",
+        "2 buah cabai merah",
+        "3 buah bawang merah",
+        "1/2 sdt garam",
+        "Minyak goreng"
+      ],
+      "langkah": [
+        "Iris tipis bawang merah,sisihkan.",
+        "Potong tipis bulat cabai rawit,sisihkan.",
+        "Potong serong cabai merah,sisihkan."
+      ],
+      "sumber": "https://cookpad.com/id/resep/4048887-telur-dadar",
+      "kategori": "telur",
+      "loves": 4,
+      "api": "lokal"
+    },
+    {
+      "judul": "Orak-arik telor original",
+      "gambar": null,
+      "skor": 1.0,
+      "bahan_tersedia": [
+        "Telur",
+        "Bawang merah",
+        "Cabai"
+      ],
+      "bahan_kurang": [],
+      "bahan_resep": [
+        "2 butir telur ayam",
+        "1 siung bawang putih dan bawang merah",
+        "7 buah cabai rawit",
+        "secukupnya garam,penyedap masakan rasa sapi, terasi"
+      ],
+      "langkah": [
+        "Kupas bawang putih dan bawang merah, iris tipis2",
+        "Potong sesuai selera cabai rawit. Kocok telur hingga rata dengan menggunakan mangkuk dan garpu.",
+        "Masukan minyak sayur secukupnya, goreng telur kemudian masukkan bawang yang sudah di iris tipis dan cabai rawit."
+      ],
+      "sumber": "https://cookpad.com/id/resep/2290636-orak-arik-telor-original",
+      "kategori": "telur",
+      "loves": 4,
+      "api": "lokal"
+    }
+  ]
+}

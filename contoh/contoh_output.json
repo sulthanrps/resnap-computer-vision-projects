@@ -1,0 +1,195 @@
+{
+  "gambar": {
+    "lebar": 960,
+    "tinggi": 720
+  },
+  "deteksi": [
+    {
+      "kelas": "shrimp",
+      "nama": "Udang",
+      "confidence": 0.8652,
+      "box": [
+        807.3,
+        258.3,
+        960.0,
+        414.8
+      ]
+    },
+    {
+      "kelas": "shrimp",
+      "nama": "Udang",
+      "confidence": 0.553,
+      "box": [
+        450.9,
+        70.2,
+        634.0,
+        171.6
+      ]
+    },
+    {
+      "kelas": "shrimp",
+      "nama": "Udang",
+      "confidence": 0.5219,
+      "box": [
+        636.8,
+        312.4,
+        753.3,
+        458.9
+      ]
+    }
+  ],
+  "bahan": [
+    {
+      "kelas": "shrimp",
+      "nama": "Udang",
+      "jumlah": 3,
+      "confidence_maks": 0.8652
+    }
+  ],
+  "resep": [
+    {
+      "judul": "Udang Bakar Madu Simple",
+      "skor": 0.5,
+      "bahan_tersedia": [
+        "Udang"
+      ],
+      "bahan_kurang": [
+        "madu"
+      ],
+      "bahan_resep": [
+        "Udang 1/4 kg yang besar",
+        "3 sendok makan madu",
+        "3 sendok makan saus tomat",
+        "3 sendok makan kecap manis",
+        "Kaldu bubuk",
+        "secukupnya Garam",
+        "secukupnya Lada"
+      ],
+      "langkah": [
+        "Cuci udang kalau mau dikasih jeruk nipis oke aja",
+        "Campurkan semua saus dan bumbu",
+        "Rendam udang dalam bumbu selama 15-30 menit di kulkas",
+        "Panggang udang sambil di olesi bumbu dalam wajan grill sampai matang"
+      ],
+      "kategori": "udang",
+      "loves": 58,
+      "sumber": "https://cookpad.com/id/resep/4002656-udang-bakar-madu-simple"
+    },
+    {
+      "judul": "Udang panggang simple 🦐",
+      "skor": 0.5,
+      "bahan_tersedia": [
+        "Udang"
+      ],
+      "bahan_kurang": [
+        "Jeruk nipis"
+      ],
+      "bahan_resep": [
+        "100 gram udang, sekitar 11 udang",
+        "1 sdm saos sambal",
+        "1/2 sdm kecap",
+        "1/2 sdm saos tiram",
+        "Secukupnya jeruk nipis",
+        "Secukupnya garam",
+        "Secukupnya mentega",
+        "Minyak untuk memanggang"
+      ],
+      "langkah": [
+        "Cuci bersih udang, siapkan wadah masukkan saos sambal, kecap, saos tiram, garam, sedikit perasan jeruk nipis dan mentega aduk rata",
+        "Masukkan udang kedalam wadah bumbu marinasi, diemkan 30 menit didalam kulkas",
+        "Panaskan teflon beri sedikit minyak goreng lalu masukkan udang yang sudah dimarinasi, panggang hingga matang",
+        "Jika sudah kecoklatan, angkat dan sajikan dipiring, siap untuk disantap"
+      ],
+      "kategori": "udang",
+      "loves": 36,
+      "sumber": "https://cookpad.com/id/resep/4197860-udang-panggang-simple-%F0%9F%A6%90"
+    },
+    {
+      "judul": "Udang goreng simple",
+      "skor": 0.5,
+      "bahan_tersedia": [
+        "Udang"
+      ],
+      "bahan_kurang": [
+        "Bawang putih"
+      ],
+      "bahan_resep": [
+        "1/2 kg udang segar",
+        "3 siung bawang putih",
+        "2 mata asam jawa",
+        "secukupnya Garam"
+      ],
+      "langkah": [
+        "Cuci bersih udang dan buang kepalanya, sisihkan",
+        "Haluskan bawang putih, garam, dan asam jawa",
+        "Balurkan bumbu ke udang, diamkan 30 menit, lalu goreng",
+        "Sisa udang yg telah berbumbu bisa disimpan di kulkas, dan goreng sesaat sebelum makan"
+      ],
+      "kategori": "udang",
+      "loves": 18,
+      "sumber": "https://cookpad.com/id/resep/4348379-udang-goreng-simple"
+    },
+    {
+      "judul": "Udang goreng tepung krispi simple",
+      "skor": 0.5,
+      "bahan_tersedia": [
+        "Udang"
+      ],
+      "bahan_kurang": [
+        "tepung krispi mama suka"
+      ],
+      "bahan_resep": [
+        "200 gr udang gala",
+        "35 gr tepung krispi (mama suka)",
+        "Minyak untuk mengoreng"
+      ],
+      "langkah": [
+        "Bersihkan udang dan buang kotoran nya lalu cuci sampai bersih",
+        "Tuang tepung krispi ke dalam piring lalu gulingkan udang ke dalam tepung remas2 udang supaya tepung menempel dengan sempurnah",
+        "Panaskan minyak lalu goreng udang dengan api kecil sampai udang mateng dan angkat, udang goreng krispi siap di sajikan.."
+      ],
+      "kategori": "udang",
+      "loves": 13,
+      "sumber": "https://cookpad.com/id/resep/4335679-udang-goreng-tepung-krispi-simple"
+    },
+    {
+      "judul": "Butter Garlic Prawn (Udang saus mentega) Non MSG",
+      "skor": 0.5,
+      "bahan_tersedia": [
+        "Udang"
+      ],
+      "bahan_kurang": [
+        "Bawang putih"
+      ],
+      "bahan_resep": [
+        "250 gr udang segar",
+        "2 siung bawang putih",
+        "3 sdm mentega/butter (sy pakai blueband)",
+        "Secukupnya garam"
+      ],
+      "langkah": [
+        "Bersihkan dan cuci bersih udang. (Saya tidak pakai kepalanya, jadi kepalanya saya pisahkan dan saya buat kaldu udang)",
+        "Masukkan 3 sdm mentega kedalam teflon, panaskan hingga mencair lalu masukkan bawang putih yang sudah dicincang halus",
+        "Tumis bawang putih hingga harum, lalu masukkan udang yang sudah dibersihkan",
+        "Tumis hingga warna udang berubah. Jangan tambahkan air karna udang akan mengeluarkan air saat ditumis. Jangan terlalu lama menumis, agar rasanya lebih enak",
+        "Koreksi rasa dengan menambahkan sedikit garam",
+        "Sajikan :)"
+      ],
+      "kategori": "udang",
+      "loves": 13,
+      "sumber": "https://cookpad.com/id/resep/3816764-butter-garlic-prawn-udang-saus-mentega-non-msg"
+    }
+  ],
+  "pengaturan": {
+    "conf": 0.5,
+    "iou": 0.7,
+    "top_k": 5,
+    "enhance": false,
+    "model": "v4b (YOLOv8s, 30 kelas)"
+  },
+  "waktu_ms": {
+    "preprocessing": 211,
+    "deteksi": 3696,
+    "resep": 303
+  }
+}
