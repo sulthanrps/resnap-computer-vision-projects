@@ -1,34 +1,54 @@
-# Smart Recipe
+# ReSnap - Recipe from a Snap !
 
-Smart Recipe memindai bahan masakan dari foto dengan YOLO dan mencari resep di dataset lokal. Kamu bisa memperbaiki daftar bahan sebelum memilih resep.
+Punya banyak bahan sisa tapi bingung mau dimasak apa ? Unggah foto bahan yang ada, lalu Smart Recipe akan mencari resep yang bisa kamu buat. Say no more to wasting food !.
 
-## Jalankan di komputer
+Aplikasi ini memakai Streamlit, model YOLOv8s dengan 30 kelas bahan, dan dataset lokal berisi 14.658 resep Cookpad Indonesia.
 
-Dari direktori proyek, gunakan Python 3.11 atau 3.12 dan jalankan perintah berikut di macOS atau Linux.
+## Jalankan aplikasi
 
-Di macOS dengan Homebrew, jika `python3.12 --version` menghasilkan `command not found`, pasang Python 3.12 dengan `brew install python@3.12` terlebih dahulu.
+Buka terminal di folder proyek.
+
+### macOS dan Linux
 
 ```sh
-python3.12 -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-Jika memakai Python 3.11, ganti `python3.12` dengan `python3.11`. Buka [http://localhost:8501](http://localhost:8501) atau alamat yang dicetak Streamlit. Pastikan `models/best.pt` dan `data/recipes.json.gz` berada di lokasi tersebut. Internet diperlukan untuk memasang dependensi, sementara pemindaian dan rekomendasi berjalan lokal.
+### Windows (PowerShell)
 
-## Gunakan aplikasi
+Jalankan perintah ini dari folder proyek. Python di dalam `.venv` dipanggil langsung.
 
-1. Unggah foto JPG atau PNG, atau ambil foto dari opsi **Kamera**, lalu pilih **Pindai bahan**. Batas foto adalah 10 MB dan 24 megapiksel.
-2. Tinjau kotak deteksi dan koreksi daftar bahan. Kamu juga bisa memilih bahan langsung tanpa foto.
-3. Buka kartu resep untuk melihat kecocokan bahan utama, bahan yang perlu disiapkan, dan langkah memasak.
-
-Untuk akses dari HP atau deployment, jalankan Streamlit di host yang bisa dijangkau perangkat dan sertakan bobot serta dataset. Gunakan HTTPS agar browser HP dapat meminta izin kamera. Unggah foto tetap dapat dipakai jika akses kamera tidak tersedia.
-
-## Cek pipeline
-
-```sh
-python resnap_pipeline.py contoh/foto_udang.jpg
+```powershell
+py -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m streamlit run app.py
 ```
 
-`scan()` menerima path foto, bytes, atau array BGR OpenCV. Hasilnya memuat `deteksi`, `bahan`, dan `resep`. Untuk menghitung rekomendasi setelah daftar bahan diedit, panggil `rekomendasi()` dengan ID kelas seperti `egg` atau `tomato`.
+Kalau perintah `py` tidak tersedia tetapi `python --version` berhasil, pakai `python -m venv .venv` untuk langkah pertama.
+
+### Coba foto contoh
+
+Buka [localhost:8501](http://localhost:8501). Untuk percobaan pertama, unggah [foto udang contoh](contoh/foto_udang.jpg) dan klik **Pindai bahan**. Aplikasi menampilkan hasil berupa kotak deteksi pada foto, daftar bahan yang bisa diedit, dan rekomendasi resep di bawahnya.
+
+Skor pada kartu resep menunjukkan berapa banyak bahan utama yang sudah anda miliki dan terdeteksi oleh sistem. Buka kartunya untuk melihat daftar bahan lengkap dan langkah memasak. Kalau fotonya sulit dikenali, pilih bahan secara manual. Aplikasi menerima JPG dan PNG dengan batas 10 MB dan 24 megapiksel.
+
+## Cek deteksi dari terminal
+
+Di macOS atau Linux, jalankan ini setelah mengaktifkan `.venv`.
+
+```sh
+python resnap_pipeline.py contoh/foto_udang.jpg --gambar /tmp/resnap-hasil.jpg
+```
+
+Di Windows, gunakan PowerShell.
+
+```powershell
+.\.venv\Scripts\python.exe resnap_pipeline.py contoh\foto_udang.jpg --gambar "$env:TEMP\resnap-hasil.jpg"
+```
+
+Kedua perintah mencetak hasil deteksi dan resep sebagai JSON, lalu menyimpan foto dengan kotak deteksi di folder sementara. Ganti path foto untuk mencoba gambar sendiri.
+
+Model dibaca dari `models/best.pt` dan resep dari `data/recipes.json.gz`. Setelah dependensi terpasang, pemindaian dan pencarian resep berjalan lokal.
